@@ -17,6 +17,7 @@
         "hyperf/engine": "^2.10",
         "hyperf/framework": "~3.1.0",
         "hyperf/http-server": "~3.1.0",
+        "hyperf/logger": "^3.1",
         "hyperf/memory": "~3.1.0",
         "hyperf/validation": "^3.1"
     },
