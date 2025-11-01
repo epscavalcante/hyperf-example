@@ -18,6 +18,6 @@ class HelloController
         return $response->json([
             'method' => $request->getMethod(),
             'message' => 'Hello',
-        ]);
+        ])->withStatus(200);
     }
 }
