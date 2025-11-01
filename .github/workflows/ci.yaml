@@ -2,63 +2,67 @@ name: CI - Hyperf
 
 on:
   push:
-    branches: [ main ]
-  pull_request: 
-    branches: [main]
+    branches: [ main, develop ]
+  pull_request:
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
-    # Opcional: habilita o Buildx para cache eficiente
     steps:
+      # ----------------------------
+      # Checkout do código
+      # ----------------------------
       - name: Checkout do código
         uses: actions/checkout@v4
 
+      # ----------------------------
+      # Configurar Docker Buildx com suporte a cache
+      # ----------------------------
       - name: Configurar Docker Buildx
         uses: docker/setup-buildx-action@v3
-
-      - name: Cache das camadas do Docker
-        uses: actions/cache@v4
         with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-
+          driver: docker-container
 
-      - name: Build da imagem de desenvolvimento
-        run: |
-          docker build \
-            -f .docker/php.Dockerfile \
-            -t myapp:test \
-            --cache-from type=local,src=/tmp/.buildx-cache \
-            --cache-to type=local,dest=/tmp/.buildx-cache-new \
-            .
+      # ----------------------------
+      # Build da imagem com cache integrado do GitHub Actions
+      # ----------------------------
+      - name: Build da imagem de desenvolvimento (com cache GHA)
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: .docker/php.Dockerfile
+          tags: myapp:test
+          load: true # carrega a imagem localmente no runner
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
-      # (Workaround: renomeia cache após build)
-      - name: Mover cache novo
-        if: always()
-        run: |
-          rm -rf /tmp/.buildx-cache
-          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
-
-      - name: Rodar Composer Install
+      # ----------------------------
+      # Instalar dependências Composer
+      # ----------------------------
+      - name: Instalar dependências Composer
         run: |
           docker run --rm \
             -v $PWD:/app \
             -w /app \
-            myapp:test composer install --prefer-dist --no-interaction
+            myapp:test composer install --prefer-dist --no-interaction --no-progress
 
-      - name: Rodar Linter (PHPStan / Pint / PHPCS)
+      # ----------------------------
+      # Rodar Linter (Pint, PHPStan, etc)
+      # ----------------------------
+      - name: Rodar Linter
         run: |
           docker run --rm \
             -v $PWD:/app \
             -w /app \
             myapp:test composer lint || true
 
+      # ----------------------------
+      # Rodar Testes (Pest/PHPUnit)
+      # ----------------------------
       - name: Rodar Testes
         run: |
           docker run --rm \
             -v $PWD:/app \
             -w /app \
-            myapp:test composer test -- tests/Unit/NameTest.php
+            myapp:test composer test
