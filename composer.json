@@ -13,23 +13,24 @@
     "license": "Apache-2.0",
     "require": {
         "php": ">=8.1",
-        "hyperf/cache": "~3.1.0",
-        "hyperf/command": "~3.1.0",
         "hyperf/config": "~3.1.0",
-        "hyperf/db-connection": "~3.1.0",
         "hyperf/engine": "^2.10",
         "hyperf/framework": "~3.1.0",
         "hyperf/guzzle": "~3.1.0",
         "hyperf/http-server": "~3.1.0",
         "hyperf/logger": "~3.1.0",
-        "hyperf/memory": "~3.1.0",
-        "hyperf/process": "~3.1.0"
+        "hyperf/memory": "~3.1.0"
     },
     "require-dev": {
+        "friendsofhyperf/pest-plugin-hyperf": "^3.1",
         "friendsofphp/php-cs-fixer": "^3.0",
         "hyperf/devtool": "~3.1.0",
         "hyperf/testing": "~3.1.0",
+        "hyperf/watcher": "^3.1",
+        "laravel/pint": "^1.25",
         "mockery/mockery": "^1.0",
+        "pestphp/pest": "^2.36",
+        "pestphp/pest-plugin-drift": "^2.5",
         "phpstan/phpstan": "^1.0",
         "swoole/ide-helper": "^5.0"
     },
@@ -48,14 +49,17 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "HyperfTest\\": "./test/"
+            "Tests\\": "tests/"
         }
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
         "optimize-autoloader": true,
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     },
     "extra": [],
     "scripts": {
@@ -65,12 +69,18 @@
         "post-autoload-dump": [
             "rm -rf runtime/container"
         ],
-        "test": "co-phpunit --prepend test/bootstrap.php --colors=always",
-        "cs-fix": "php-cs-fixer fix $1",
+        "test": "pest",
+        "test:coverage": "php -d pcov.enabled=1 ./vendor/bin/pest --coverage",
+        "lint": "pint --test",
+        "lint:fix": "pint",
         "analyse": "phpstan analyse --memory-limit 300M",
         "start": [
             "Composer\\Config::disableProcessTimeout",
             "php ./bin/hyperf.php start"
+        ],
+        "start:dev": [
+            "Composer\\Config::disableProcessTimeout",
+            "php ./bin/hyperf.php server:watch"
         ]
     }
 }

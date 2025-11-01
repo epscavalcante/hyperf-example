@@ -1,9 +1,5 @@
 <?php
 
-/**
- * Initialize a dependency injection container that implemented PSR-11 and return the container.
- */
-
 declare(strict_types=1);
 /**
  * This file is part of Hyperf.
@@ -17,9 +13,20 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 use Hyperf\Context\ApplicationContext;
+use Hyperf\Di\ClassLoader;
 use Hyperf\Di\Container;
 use Hyperf\Di\Definition\DefinitionSourceFactory;
 
-$container = new Container((new DefinitionSourceFactory)());
+require_once __DIR__.'/../vendor/autoload.php';
 
-return ApplicationContext::setContainer($container);
+defined('BASE_PATH') or define('BASE_PATH', dirname(__DIR__, 1));
+
+(function () {
+    ClassLoader::init();
+
+    ApplicationContext::setContainer(
+        new Container((new DefinitionSourceFactory)())
+    );
+
+    // $container->get(Hyperf\Contract\ApplicationInterface::class);
+})();
