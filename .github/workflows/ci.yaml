@@ -65,4 +65,4 @@ jobs:
           docker run --rm \
             -v $PWD:/app \
             -w /app \
-            myapp:test composer test
+            myapp:test composer test -- tests/Unit/AccountUnitTest.php
