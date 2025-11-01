@@ -1,0 +1,11 @@
+services:
+  app:
+    container_name: hyperf-example-app
+    tty: true
+    build:
+      context: .
+      dockerfile: php.Dockerfile
+    volumes:
+      - ./:/var/www
+    ports:
+      - 9501:9501
