@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Request;
+namespace App\Infraestructure\Http\Requests;
 
 use Hyperf\Validation\Request\FormRequest;
 
-class StoreUserRequest extends FormRequest
+class SignupRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
