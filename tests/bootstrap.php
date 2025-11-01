@@ -7,9 +7,9 @@ use Hyperf\Di\ClassLoader;
 use Hyperf\Di\Container;
 use Hyperf\Di\Definition\DefinitionSourceFactory;
 
-require_once __DIR__.'/../vendor/autoload.php';
-
 defined('BASE_PATH') or define('BASE_PATH', dirname(__DIR__, 1));
+
+require_once __DIR__.'/../vendor/autoload.php';
 
 (function () {
     ClassLoader::init();
