@@ -43,8 +43,8 @@ jobs:
       - name: Instalar dependências Composer
         run: |
           docker run --rm \
-            -v $PWD:/app \
-            -w /app \
+            -v $PWD:/var/www \
+            -w /var/www \
             myapp:test composer install --prefer-dist --no-interaction --no-progress
 
       # ----------------------------
@@ -53,8 +53,8 @@ jobs:
       - name: Rodar Linter
         run: |
           docker run --rm \
-            -v $PWD:/app \
-            -w /app \
+            -v $PWD:/var/www \
+            -w /var/www \
             myapp:test composer lint || true
 
       # ----------------------------
@@ -63,6 +63,6 @@ jobs:
       - name: Rodar Testes
         run: |
           docker run --rm \
-            -v $PWD:/app \
-            -w /app \
+            -v $PWD:/var/www \
+            -w /var/www \
             myapp:test composer test -- tests/Unit/AccountUnitTest.php
