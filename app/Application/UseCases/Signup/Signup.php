@@ -4,23 +4,38 @@ declare(strict_types=1);
 
 namespace App\Application\UseCases\Signup;
 
+use App\Application\Exceptions\AccountAlreadyExistsException;
+use App\Application\Repositories\AccountRepositoryInterface;
+use App\Domain\Entities\Account;
 use Psr\Log\LoggerInterface;
 
 class Signup
 {
     public function __construct(
-        private readonly LoggerInterface $logger
+        private readonly LoggerInterface $logger,
+        private readonly AccountRepositoryInterface $accountRepository,
     ) {}
 
     public function execute(SignupInput $input): SignupOutput
     {
         $this->logger->info(__METHOD__);
         $this->logger->debug('Signup input', (array) $input);
-        // Business logic to create a new user account would go here.
 
-        // For demonstration purposes, we'll return a dummy account ID.
-        $accountId = uniqid('account_', true);
+        $accountFound = $this->accountRepository->getByEmail($input->email);
+        if (! is_null($accountFound)) {
+            throw new AccountAlreadyExistsException;
+        }
 
-        return new SignupOutput($accountId);
+        $names = explode(' ', $input->name);
+
+        $account = Account::create(
+            firstName: array_shift($names),
+            lastName: implode(' ', $names),
+            email: $input->email
+        );
+
+        $this->accountRepository->save($account);
+
+        return new SignupOutput($account->getId());
     }
 }

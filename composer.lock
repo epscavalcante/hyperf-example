@@ -4,8 +4,68 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fc42e6fb94d864b4608d621b80ee98f8",
+    "content-hash": "2f40ffa1a8736d0f83efc65086d3e38d",
     "packages": [
+        {
+            "name": "brick/math",
+            "version": "0.13.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/brick/math.git",
+                "reference": "fc7ed316430118cc7836bf45faff18d5dfc8de04"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/brick/math/zipball/fc7ed316430118cc7836bf45faff18d5dfc8de04",
+                "reference": "fc7ed316430118cc7836bf45faff18d5dfc8de04",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.2",
+                "phpunit/phpunit": "^10.1",
+                "vimeo/psalm": "6.8.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Brick\\Math\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Arbitrary-precision arithmetic library",
+            "keywords": [
+                "Arbitrary-precision",
+                "BigInteger",
+                "BigRational",
+                "arithmetic",
+                "bigdecimal",
+                "bignum",
+                "bignumber",
+                "brick",
+                "decimal",
+                "integer",
+                "math",
+                "mathematics",
+                "rational"
+            ],
+            "support": {
+                "issues": "https://github.com/brick/math/issues",
+                "source": "https://github.com/brick/math/tree/0.13.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/BenMorel",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-03-29T13:50:30+00:00"
+        },
         {
             "name": "carbonphp/carbon-doctrine-types",
             "version": "3.2.0",
@@ -1122,6 +1182,221 @@
             "time": "2025-10-30T01:44:44+00:00"
         },
         {
+            "name": "hyperf/database",
+            "version": "v3.1.63",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hyperf/database.git",
+                "reference": "a8d292078e6f2a48a52cf5a76dc007b83edb08db"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hyperf/database/zipball/a8d292078e6f2a48a52cf5a76dc007b83edb08db",
+                "reference": "a8d292078e6f2a48a52cf5a76dc007b83edb08db",
+                "shasum": ""
+            },
+            "require": {
+                "hyperf/code-parser": "~3.1.0",
+                "hyperf/collection": "~3.1.23",
+                "hyperf/conditionable": "~3.1.0",
+                "hyperf/context": "~3.1.0",
+                "hyperf/contract": "~3.1.0",
+                "hyperf/engine": "^2.0",
+                "hyperf/macroable": "~3.1.0",
+                "hyperf/stringable": "~3.1.0",
+                "hyperf/support": "~3.1.0",
+                "hyperf/tappable": "~3.1.0",
+                "nesbot/carbon": "^2.0",
+                "php": ">=8.1",
+                "psr/container": "^1.0 || ^2.0",
+                "psr/event-dispatcher": "^1.0"
+            },
+            "suggest": {
+                "doctrine/dbal": "Required to rename columns (^3.0).",
+                "hyperf/paginator": "Required to paginate the result set (~3.1.0).",
+                "nikic/php-parser": "Required to use ModelCommand. (^4.0)",
+                "php-di/phpdoc-reader": "Required to use ModelCommand. (^2.2)"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hyperf\\Database\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A flexible database library.",
+            "homepage": "https://hyperf.io",
+            "keywords": [
+                "database",
+                "hyperf",
+                "php"
+            ],
+            "support": {
+                "docs": "https://hyperf.wiki",
+                "issues": "https://github.com/hyperf/hyperf/issues",
+                "pull-request": "https://github.com/hyperf/hyperf/pulls",
+                "source": "https://github.com/hyperf/hyperf"
+            },
+            "funding": [
+                {
+                    "url": "https://hyperf.wiki/#/zh-cn/donate",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://opencollective.com/hyperf",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2025-10-30T01:44:44+00:00"
+        },
+        {
+            "name": "hyperf/database-sqlite",
+            "version": "v3.1.63",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hyperf/database-sqlite.git",
+                "reference": "aeefb325cf6fdfba741295db848cfbf2ea653062"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hyperf/database-sqlite/zipball/aeefb325cf6fdfba741295db848cfbf2ea653062",
+                "reference": "aeefb325cf6fdfba741295db848cfbf2ea653062",
+                "shasum": ""
+            },
+            "require": {
+                "hyperf/collection": "~3.1.0",
+                "hyperf/context": "~3.1.0",
+                "hyperf/database": "~3.1.0",
+                "hyperf/stringable": "~3.1.0",
+                "hyperf/support": "~3.1.0",
+                "php": ">=8.1"
+            },
+            "type": "library",
+            "extra": {
+                "hyperf": {
+                    "config": "Hyperf\\Database\\SQLite\\ConfigProvider"
+                },
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hyperf\\Database\\SQLite\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "The sqlite driver for hyperf/database.",
+            "homepage": "https://hyperf.io",
+            "keywords": [
+                "database",
+                "hyperf",
+                "php",
+                "sqlite",
+                "swoole"
+            ],
+            "support": {
+                "docs": "https://hyperf.wiki",
+                "issues": "https://github.com/hyperf/hyperf/issues",
+                "pull-request": "https://github.com/hyperf/hyperf/pulls",
+                "source": "https://github.com/hyperf/hyperf"
+            },
+            "funding": [
+                {
+                    "url": "https://hyperf.wiki/#/zh-cn/donate",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://opencollective.com/hyperf",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2025-10-30T01:44:44+00:00"
+        },
+        {
+            "name": "hyperf/db-connection",
+            "version": "v3.1.63",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hyperf/db-connection.git",
+                "reference": "9db060c0e53ff704ac65ef30d8c5088973ba5612"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hyperf/db-connection/zipball/9db060c0e53ff704ac65ef30d8c5088973ba5612",
+                "reference": "9db060c0e53ff704ac65ef30d8c5088973ba5612",
+                "shasum": ""
+            },
+            "require": {
+                "hyperf/collection": "~3.1.0",
+                "hyperf/context": "~3.1.0",
+                "hyperf/contract": "~3.1.0",
+                "hyperf/coroutine": "~3.1.0",
+                "hyperf/database": "~3.1.0",
+                "hyperf/di": "~3.1.0",
+                "hyperf/framework": "~3.1.0",
+                "hyperf/model-listener": "~3.1.0",
+                "hyperf/pool": "~3.1.0",
+                "hyperf/support": "~3.1.0",
+                "php": ">=8.1",
+                "psr/container": "^1.0 || ^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "hyperf": {
+                    "config": "Hyperf\\DbConnection\\ConfigProvider"
+                },
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hyperf\\DbConnection\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A hyperf db connection handler for hyperf/database.",
+            "homepage": "https://hyperf.io",
+            "keywords": [
+                "Connection",
+                "database",
+                "hyperf",
+                "php"
+            ],
+            "support": {
+                "docs": "https://hyperf.wiki",
+                "issues": "https://github.com/hyperf/hyperf/issues",
+                "pull-request": "https://github.com/hyperf/hyperf/pulls",
+                "source": "https://github.com/hyperf/hyperf"
+            },
+            "funding": [
+                {
+                    "url": "https://hyperf.wiki/#/zh-cn/donate",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://opencollective.com/hyperf",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2025-10-30T01:44:44+00:00"
+        },
+        {
             "name": "hyperf/di",
             "version": "v3.1.63",
             "source": {
@@ -1978,6 +2253,73 @@
             "time": "2025-10-30T01:44:44+00:00"
         },
         {
+            "name": "hyperf/model-listener",
+            "version": "v3.1.63",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hyperf/model-listener.git",
+                "reference": "15238b2026158036993939c1b664f3f76f02a855"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hyperf/model-listener/zipball/15238b2026158036993939c1b664f3f76f02a855",
+                "reference": "15238b2026158036993939c1b664f3f76f02a855",
+                "shasum": ""
+            },
+            "require": {
+                "hyperf/contract": "~3.1.0",
+                "hyperf/database": "~3.1.0",
+                "hyperf/di": "~3.1.0",
+                "hyperf/event": "~3.1.0",
+                "hyperf/support": "~3.1.0",
+                "php": ">=8.1",
+                "psr/container": "^1.0 || ^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "hyperf": {
+                    "config": "Hyperf\\ModelListener\\ConfigProvider"
+                },
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hyperf\\ModelListener\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A model listener for Hyperf.",
+            "homepage": "https://hyperf.io",
+            "keywords": [
+                "hyperf",
+                "model-listener",
+                "php",
+                "swoole"
+            ],
+            "support": {
+                "docs": "https://hyperf.wiki",
+                "issues": "https://github.com/hyperf/hyperf/issues",
+                "pull-request": "https://github.com/hyperf/hyperf/pulls",
+                "source": "https://github.com/hyperf/hyperf"
+            },
+            "funding": [
+                {
+                    "url": "https://hyperf.wiki/#/zh-cn/donate",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://opencollective.com/hyperf",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2025-10-30T01:44:44+00:00"
+        },
+        {
             "name": "hyperf/pipeline",
             "version": "v3.1.63",
             "source": {
@@ -2017,6 +2359,77 @@
                 "hyperf",
                 "php",
                 "pipeline",
+                "swoole"
+            ],
+            "support": {
+                "docs": "https://hyperf.wiki",
+                "issues": "https://github.com/hyperf/hyperf/issues",
+                "pull-request": "https://github.com/hyperf/hyperf/pulls",
+                "source": "https://github.com/hyperf/hyperf"
+            },
+            "funding": [
+                {
+                    "url": "https://hyperf.wiki/#/zh-cn/donate",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://opencollective.com/hyperf",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2025-10-30T01:44:44+00:00"
+        },
+        {
+            "name": "hyperf/pool",
+            "version": "v3.1.63",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hyperf/pool.git",
+                "reference": "a4b763723103636cca3afb9f85c620ae02c1a33c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hyperf/pool/zipball/a4b763723103636cca3afb9f85c620ae02c1a33c",
+                "reference": "a4b763723103636cca3afb9f85c620ae02c1a33c",
+                "shasum": ""
+            },
+            "require": {
+                "hyperf/context": "~3.1.0",
+                "hyperf/contract": "~3.1.0",
+                "hyperf/coordinator": "~3.1.0",
+                "hyperf/coroutine": "~3.1.0",
+                "hyperf/engine": "^2.0",
+                "hyperf/support": "~3.1.0",
+                "php": ">=8.1",
+                "psr/container": "^1.0 || ^2.0"
+            },
+            "suggest": {
+                "psr/event-dispatcher": "Required to use events."
+            },
+            "type": "library",
+            "extra": {
+                "hyperf": {
+                    "config": "Hyperf\\Pool\\ConfigProvider"
+                },
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hyperf\\Pool\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "An independent universal connection pool component.",
+            "homepage": "https://hyperf.io",
+            "keywords": [
+                "connection-pool",
+                "hyperf",
+                "php",
                 "swoole"
             ],
             "support": {
@@ -2584,6 +2997,70 @@
                 }
             ],
             "time": "2025-10-30T01:44:44+00:00"
+        },
+        {
+            "name": "identifier/identifier",
+            "version": "0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-identifier/identifier.git",
+                "reference": "10f7c155ef500a3831ee6fceb0c59b4bf90424ce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-identifier/identifier/zipball/10f7c155ef500a3831ee6fceb0c59b4bf90424ce",
+                "reference": "10f7c155ef500a3831ee6fceb0c59b4bf90424ce",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "captainhook/captainhook": "^5.25",
+                "captainhook/plugin-composer": "^5.3",
+                "dealerdirect/phpcodesniffer-composer-installer": "^1.0.0",
+                "ergebnis/composer-normalize": "^2.45",
+                "php-parallel-lint/php-console-highlighter": "^1.0",
+                "php-parallel-lint/php-parallel-lint": "^1.4",
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan": "^2.1",
+                "ramsey/coding-standard": "^2.3",
+                "ramsey/conventional-commits": "^1.6",
+                "roave/security-advisories": "dev-latest"
+            },
+            "type": "library",
+            "extra": {
+                "captainhook": {
+                    "force-install": true
+                },
+                "ramsey/conventional-commits": {
+                    "configFile": "conventional-commits.json"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Identifier\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "CC0-1.0"
+            ],
+            "description": "Common Interfaces and Factories for Identifiers",
+            "keywords": [
+                "UID",
+                "guid",
+                "id",
+                "identifier",
+                "snowflake",
+                "ulid",
+                "uuid"
+            ],
+            "support": {
+                "issues": "https://github.com/php-identifier/identifier/issues",
+                "source": "https://github.com/php-identifier/identifier/tree/0.4.0"
+            },
+            "time": "2025-06-12T05:31:12+00:00"
         },
         {
             "name": "laminas/laminas-mime",
@@ -3612,6 +4089,145 @@
                 "source": "https://github.com/php-fig/log/tree/3.0.2"
             },
             "time": "2024-09-11T13:17:53+00:00"
+        },
+        {
+            "name": "psr/simple-cache",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/simple-cache.git",
+                "reference": "764e0b3939f5ca87cb904f570ef9be2d78a07865"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/764e0b3939f5ca87cb904f570ef9be2d78a07865",
+                "reference": "764e0b3939f5ca87cb904f570ef9be2d78a07865",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\SimpleCache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interfaces for simple caching",
+            "keywords": [
+                "cache",
+                "caching",
+                "psr",
+                "psr-16",
+                "simple-cache"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/simple-cache/tree/3.0.0"
+            },
+            "time": "2021-10-29T13:26:27+00:00"
+        },
+        {
+            "name": "ramsey/identifier",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ramsey/identifier.git",
+                "reference": "22060e84f62bbe2d5b1139f912c8fd6d5a8d3af5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ramsey/identifier/zipball/22060e84f62bbe2d5b1139f912c8fd6d5a8d3af5",
+                "reference": "22060e84f62bbe2d5b1139f912c8fd6d5a8d3af5",
+                "shasum": ""
+            },
+            "require": {
+                "brick/math": "^0.13.0",
+                "identifier/identifier": "^0.4.0",
+                "php-64bit": "^8.2",
+                "psr/clock": "^1.0",
+                "psr/simple-cache": "^3.0"
+            },
+            "provide": {
+                "identifier/identifier-implementation": "*"
+            },
+            "require-dev": {
+                "captainhook/captainhook": "^5.25",
+                "captainhook/plugin-composer": "^5.3",
+                "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+                "ergebnis/composer-normalize": "^2.45",
+                "hamcrest/hamcrest-php": "^2.0",
+                "mockery/mockery": "^1.6",
+                "php-parallel-lint/php-console-highlighter": "^1.0",
+                "php-parallel-lint/php-parallel-lint": "^1.4",
+                "phpbench/phpbench": "^1.4",
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-mockery": "^2.0",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpunit/phpunit": "^11.5 || ^12.0",
+                "ramsey/coding-standard": "^2.3",
+                "ramsey/composer-repl": "^1.5",
+                "ramsey/conventional-commits": "^1.6",
+                "roave/security-advisories": "dev-latest"
+            },
+            "suggest": {
+                "psr/simple-cache-implementation": "To cache the system node (MAC address) for faster lookup"
+            },
+            "type": "library",
+            "extra": {
+                "captainhook": {
+                    "force-install": true
+                },
+                "ramsey/conventional-commits": {
+                    "configFile": "conventional-commits.json"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ramsey\\Identifier\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Ramsey",
+                    "email": "ben@benramsey.com",
+                    "homepage": "https://benramsey.com"
+                }
+            ],
+            "description": "A PHP library for generating and working with identifiers, including UUIDs, ULIDs, and Snowflakes",
+            "keywords": [
+                "UID",
+                "guid",
+                "id",
+                "identifier",
+                "snowflake",
+                "ulid",
+                "uuid"
+            ],
+            "support": {
+                "issues": "https://github.com/ramsey/identifier/issues",
+                "source": "https://github.com/ramsey/identifier/tree/0.1.0"
+            },
+            "time": "2025-06-19T01:34:50+00:00"
         },
         {
             "name": "swow/psr7-plus",
