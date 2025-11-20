@@ -84,9 +84,17 @@ jobs:
               echo 'File exists app/: ' . (is_dir('app') ? 'YES' : 'NO') . \"\n\";
             "
 
+      # - name: Pest
+      #   run: |
+      #     docker run --rm \
+      #       -v $PWD:/var/www \
+      #       -w /var/www \
+      #       myapp:test composer test tests/Unit/AccountUnitTest.php
+
       - name: Pest
         run: |
           docker run --rm \
+            -e BASE_PATH=/var/www \
             -v $PWD:/var/www \
             -w /var/www \
             myapp:test composer test tests/Unit/AccountUnitTest.php
