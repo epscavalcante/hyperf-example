@@ -36,5 +36,7 @@ jobs:
       - name: Autoload 
         run: php -r "require 'vendor/autoload.php'; echo 'autoload ok';"
 
+      - name: Bootstrap
+        run: php tests/bootstrap.php
       # - name: Run Tests
       #   run: vendor/bin/phpunit --testdox
