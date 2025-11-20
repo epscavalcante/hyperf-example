@@ -94,7 +94,6 @@ jobs:
       - name: Pest
         run: |
           docker run --rm \
-            -e BASE_PATH=/var/www \
             -v $PWD:/var/www \
             -w /var/www \
             myapp:test composer test
