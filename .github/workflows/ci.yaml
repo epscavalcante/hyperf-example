@@ -97,7 +97,7 @@ jobs:
             -e BASE_PATH=/var/www \
             -v $PWD:/var/www \
             -w /var/www \
-            myapp:test php vendor/bin/pest --prepend tests/bootstrap.php
+            myapp:test composer test
 
       # ----------------------------
       # Rodar Testes (Pest/PHPUnit)
