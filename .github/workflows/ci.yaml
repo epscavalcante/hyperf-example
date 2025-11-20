@@ -45,7 +45,7 @@ jobs:
           docker run --rm \
             -v $PWD:/var/www \
             -w /var/www \
-            myapp:test composer install --prefer-dist --no-interaction --no-progress
+            myapp:test composer install --no-interaction --no-progress
 
       # ----------------------------
       # Rodar Linter (Pint, PHPStan, etc)
