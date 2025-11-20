@@ -1,4 +1,4 @@
-name: CI - Hyperf
+name: CI/CD - Hyperf
 
 on:
   push:
@@ -6,86 +6,26 @@ on:
   pull_request:
 
 jobs:
-  test:
+  tests:
+    name: Run Unit Tests
     runs-on: ubuntu-latest
 
     steps:
-      # ----------------------------
-      # Checkout do código
-      # ----------------------------
-      - name: Checkout do código
+      - name: Checkout
         uses: actions/checkout@v4
 
-      # ----------------------------
-      # Configurar Docker Buildx com suporte a cache
-      # ----------------------------
-      - name: Configurar Docker Buildx
-        uses: docker/setup-buildx-action@v3
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
         with:
-          driver: docker-container
+          php-version: '8.1'
+          extensions: swoole
+          coverage: none
 
-      # ----------------------------
-      # Build da imagem com cache integrado do GitHub Actions
-      # ----------------------------
-      - name: Build da imagem de desenvolvimento (com cache GHA)
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          file: Dockerfile
-          tags: myapp:test
-          load: true # carrega a imagem localmente no runner
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+      - name: Install Dependencies
+        run: composer install --no-interaction --no-scripts --prefer-dist
 
-      # ----------------------------
-      # Instalar dependências Composer
-      # ----------------------------
-      - name: Instalar dependências Composer
-        run: |
-          docker run --rm \
-            -v $PWD:/var/www \
-            -w /var/www \
-            myapp:test composer install --prefer-dist --no-interaction --no-progress
+      - name: Linter
+        run: composer lint || true
 
-      # ----------------------------
-      # Rodar Linter (Pint, PHPStan, etc)
-      # ----------------------------
-      - name: Rodar Linter
-        run: |
-          docker run --rm \
-            -v $PWD:/var/www \
-            -w /var/www \
-            myapp:test composer lint || true
-      # ----------------------------
-      # Listar arquivos
-      # ----------------------------
-      - name: Listar arquivos
-        run: |
-          docker run --rm \
-            -v $PWD:/var/www \
-            -w /var/www \
-            myapp:test ls -lah
-
-      # - name: Pest
-      #   run: |
-      #     docker run --rm \
-      #       -v $PWD:/var/www \
-      #       -w /var/www \
-      #       myapp:test composer test tests/Unit/AccountUnitTest.php
-
-      - name: Pest
-        run: |
-          docker run --rm \
-            -v $PWD:/var/www \
-            -w /var/www \
-            myapp:test php vendor/bin/pest tests/Unit/EmailUnitTest.php
-
-      # ----------------------------
-      # Rodar Testes (Pest/PHPUnit)
-      # ----------------------------
-      # - name: Rodar Testes
-      #   run: |
-      #     docker run --rm \
-      #       -v $PWD:/var/www \
-      #       -w /var/www \
-      #       myapp:test composer test -- tests/Unit/AccountUnitTest.php
+      # - name: Run Tests
+      #   run: vendor/bin/phpunit --testdox
