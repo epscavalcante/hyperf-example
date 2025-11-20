@@ -17,7 +17,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: '8.3'
           extensions: swoole
           coverage: none
 
@@ -26,6 +26,9 @@ jobs:
 
       - name: Linter
         run: composer lint || true
+
+      - name: Tests
+        run:  composer test tests/Unit/EmailUnitTest.php 
 
       # - name: Run Tests
       #   run: vendor/bin/phpunit --testdox
