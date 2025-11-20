@@ -31,7 +31,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: .docker/php.Dockerfile
+          file: Dockerfile
           tags: myapp:test
           load: true # carrega a imagem localmente no runner
           cache-from: type=gha
@@ -45,7 +45,7 @@ jobs:
           docker run --rm \
             -v $PWD:/var/www \
             -w /var/www \
-            myapp:test composer install --no-interaction --no-progress
+            myapp:test composer install --prefer-dist --no-interaction --no-progress
 
       # ----------------------------
       # Rodar Linter (Pint, PHPStan, etc)
