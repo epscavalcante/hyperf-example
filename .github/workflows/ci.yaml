@@ -66,24 +66,6 @@ jobs:
             -w /var/www \
             myapp:test ls -lah
 
-      # ----------------------------
-      # Debug do BASE_PATH dentro do container
-      # ----------------------------
-      - name: Debug BASE_PATH
-        run: |
-          docker run --rm \
-            -v $PWD:/var/www \
-            -w /var/www \
-            myapp:test php -r "
-              require_once 'vendor/autoload.php';
-              require_once 'tests/bootstrap.php';
-              echo \"---- DEBUG ----\n\";
-              echo 'getcwd(): ' . getcwd() . \"\n\";
-              echo 'BASE_PATH: ' . (defined('BASE_PATH') ? BASE_PATH : '[NOT DEFINED]') . \"\n\";
-              echo 'File exists vendor/autoload.php: ' . (file_exists('vendor/autoload.php') ? 'YES' : 'NO') . \"\n\";
-              echo 'File exists app/: ' . (is_dir('app') ? 'YES' : 'NO') . \"\n\";
-            "
-
       # - name: Pest
       #   run: |
       #     docker run --rm \
@@ -96,7 +78,7 @@ jobs:
           docker run --rm \
             -v $PWD:/var/www \
             -w /var/www \
-            myapp:test composer test
+            myapp:test php vendor/bin/pest
 
       # ----------------------------
       # Rodar Testes (Pest/PHPUnit)
