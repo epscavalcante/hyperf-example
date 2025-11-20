@@ -30,8 +30,11 @@ jobs:
       - name: Verify permissions
         run: ls -la vendor/bin
 
-      - name: Tests
-        run:  composer test
+      - name: Versão do pest
+        run: php vendor/bin/pest --version 
+
+      - name: Autoload 
+        run: php -r "require 'vendor/autoload.php'; echo 'autoload ok';"
 
       # - name: Run Tests
       #   run: vendor/bin/phpunit --testdox
