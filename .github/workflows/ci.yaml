@@ -56,13 +56,22 @@ jobs:
             -v $PWD:/var/www \
             -w /var/www \
             myapp:test composer lint || true
-
       # ----------------------------
-      # Rodar Testes (Pest/PHPUnit)
+      # Listar arquivos
       # ----------------------------
       - name: Rodar Testes
         run: |
           docker run --rm \
             -v $PWD:/var/www \
             -w /var/www \
-            myapp:test composer test -- tests/Unit/AccountUnitTest.php
+            myapp:test ls -lah
+
+      # ----------------------------
+      # Rodar Testes (Pest/PHPUnit)
+      # ----------------------------
+      # - name: Rodar Testes
+      #   run: |
+      #     docker run --rm \
+      #       -v $PWD:/var/www \
+      #       -w /var/www \
+      #       myapp:test composer test -- tests/Unit/AccountUnitTest.php
