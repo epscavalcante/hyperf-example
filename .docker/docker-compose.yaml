@@ -3,8 +3,8 @@ services:
     container_name: hyperf-example-app
     tty: true
     build:
-      context: .
-      dockerfile: php.Dockerfile
+      context: ..
+      dockerfile: .docker/php.Dockerfile
     volumes:
       - ../:/var/www
     ports:
@@ -16,15 +16,15 @@ services:
   mysql:
     container_name: hyperf-example-mysql
     build:
-      context: ./mysql
-      dockerfile: Dockerfile
+      context: ..
+      dockerfile: .docker/mysql/Dockerfile
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=app
     ports:
       - "3306:3306"
     volumes:
-      - ./mysql/data:/var/lib/mysql
+      - ../.docker/mysql/data:/var/lib/mysql
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
@@ -34,8 +34,8 @@ services:
   phpmyadmin:
     container_name: hyperf-example-phpmyadmin
     build:
-      context: .
-      dockerfile: phpmyadmin.Dockerfile
+      context: ..
+      dockerfile: .docker/phpmyadmin.Dockerfile
     ports:
       - 9000:80
     environment:

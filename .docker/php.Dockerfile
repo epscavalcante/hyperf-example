@@ -18,7 +18,7 @@ FROM hyperf/hyperf:8.3-alpine-v3.21-swoole-slim
 WORKDIR /var/www
 
 # --- Copia arquivos do host ---
-COPY .. /var/www
+COPY . /var/www
 #RUN chown -R ${USERNAME}:${USERNAME} /var/www
 
 # --- Instala Composer (já vem no Hyperf) e dependências de PCOV ---
