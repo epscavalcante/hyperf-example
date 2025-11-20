@@ -97,7 +97,7 @@ jobs:
             -e BASE_PATH=/var/www \
             -v $PWD:/var/www \
             -w /var/www \
-            myapp:test composer test tests/Unit/AccountUnitTest.php
+            myapp:test php vendor/bin/pest tests/Unit/EmailUnitTest.php
 
       # ----------------------------
       # Rodar Testes (Pest/PHPUnit)
