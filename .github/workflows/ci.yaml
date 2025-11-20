@@ -59,12 +59,19 @@ jobs:
       # ----------------------------
       # Listar arquivos
       # ----------------------------
-      - name: Rodar Testes
+      - name: Listar arquivos
         run: |
           docker run --rm \
             -v $PWD:/var/www \
             -w /var/www \
             myapp:test ls -lah
+
+      - name: Pest
+        run: |
+          docker run --rm \
+            -v $PWD:/var/www \
+            -w /var/www \
+            myapp:test ./vendor/bin/pest
 
       # ----------------------------
       # Rodar Testes (Pest/PHPUnit)
