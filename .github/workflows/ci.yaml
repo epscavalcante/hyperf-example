@@ -27,6 +27,9 @@ jobs:
       - name: Linter
         run: composer lint || true
 
+      - name: Verify permissions
+        run: ls -la vendor/bin
+
       - name: Tests
         run:  composer test
 
