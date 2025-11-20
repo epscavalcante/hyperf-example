@@ -6,7 +6,7 @@ describe('Signup Feature Test', function () {
             '/auth/signup',
             [
                 'name' => 'John Doe',
-                'email' => 'john.doe@email.com',
+                'email' => 'john.doe' . uniqid() . '@email.com',
             ]
         );
         $response->assertCreated();
