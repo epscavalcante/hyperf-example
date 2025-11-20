@@ -73,7 +73,7 @@
         "post-autoload-dump": [
             "rm -rf runtime/container"
         ],
-        "test": "./vendor/bin/pest --prepend tests/bootstrap.php --coroutine",
+        "test": "php vendor/bin/pest --prepend tests/bootstrap.php",
         "test:coverage": "pest --coverage",
         "lint": "pint --test",
         "lint:fix": "pint",
