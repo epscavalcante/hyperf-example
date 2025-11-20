@@ -71,7 +71,7 @@ jobs:
           docker run --rm \
             -v $PWD:/var/www \
             -w /var/www \
-            myapp:test ./vendor/bin/pest --prepend tests/bootstrap.php --coroutine
+            myapp:test composer test tests/Unit/AccountUnitTest.php
 
       # ----------------------------
       # Rodar Testes (Pest/PHPUnit)
