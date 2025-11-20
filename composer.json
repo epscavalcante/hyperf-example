@@ -26,7 +26,6 @@
         "ramsey/identifier": "^0.1.0"
     },
     "require-dev": {
-        "friendsofhyperf/pest-plugin-hyperf": "^3.1",
         "friendsofphp/php-cs-fixer": "^3.0",
         "hyperf/devtool": "~3.1.0",
         "hyperf/testing": "~3.1.0",
@@ -73,7 +72,7 @@
         "post-autoload-dump": [
             "rm -rf runtime/container"
         ],
-        "test": "php vendor/bin/pest --prepend tests/bootstrap.php",
+        "test": "pest",
         "test:coverage": "pest --coverage",
         "lint": "pint --test",
         "lint:fix": "pint",

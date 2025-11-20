@@ -1,14 +1,22 @@
 <?php
-require_once __DIR__ . '/../vendor/autoload.php';
 
-defined('BASE_PATH') or define('BASE_PATH', dirname(__DIR__, 1));
+declare(strict_types=1);
+
+use Hyperf\Context\ApplicationContext;
+use Hyperf\Di\ClassLoader;
+use Hyperf\Di\Container;
+use Hyperf\Di\Definition\DefinitionSourceFactory;
+
+require_once __DIR__ .'/../vendor/autoload.php';
+
+! defined('BASE_PATH') && define('BASE_PATH', dirname(__DIR__, 1));
 
 (function () {
-    \Hyperf\Di\ClassLoader::init();
+    ClassLoader::init();
 
-    \Hyperf\Context\ApplicationContext::setContainer(
-        new \Hyperf\Di\Container((new \Hyperf\Di\Definition\DefinitionSourceFactory())())
+    ApplicationContext::setContainer(
+        new Container((new DefinitionSourceFactory)())
     );
-    
+
     // $container->get(Hyperf\Contract\ApplicationInterface::class);
 })();
