@@ -74,7 +74,7 @@
             "rm -rf runtime/container"
         ],
         "test": "pest",
-        "test:coverage": "php -d pcov.enabled=1 ./vendor/bin/pest --coverage",
+        "test:coverage": "pest --coverage",
         "lint": "pint --test",
         "lint:fix": "pint",
         "analyse": "phpstan analyse --memory-limit 300M",
