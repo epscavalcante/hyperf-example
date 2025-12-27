@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Domain\Entities\Account;
+use Core\Domain\Entities\Account;
 use Ramsey\Identifier\Ulid\UlidFactory;
 
 describe('Account Unit Tests', function () {

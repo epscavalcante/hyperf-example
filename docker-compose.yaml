@@ -2,9 +2,13 @@ services:
   app:
     container_name: hyperf-example-app
     tty: true
+    user: "${UID:-1000}:${GID:-1000}"
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
     volumes:
       - ./:/var/www
     ports:

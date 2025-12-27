@@ -2,19 +2,17 @@
 
 declare(strict_types=1);
 
-namespace App\Infraestructure\Repositories;
+namespace App\Repositories;
 
-use App\Application\Repositories\AccountRepositoryInterface;
-use App\Domain\Entities\Account;
-use Hyperf\DbConnection\Db;
+use Core\Application\Repositories\AccountRepositoryInterface;
+use Core\Domain\Entities\Account;
+use App\Model\AccountModel;
 
-class AccountQueryBuilderRepository implements AccountRepositoryInterface
+class AccountModelRepository implements AccountRepositoryInterface
 {
     public function getByEmail(string $email): ?Account
     {
-        $account = Db::table('accounts')
-            ->where('email', $email)
-            ->first();
+        $account = AccountModel::query()->where('email', $email)->first();
 
         if (is_null($account)) {
             return null;
@@ -30,9 +28,7 @@ class AccountQueryBuilderRepository implements AccountRepositoryInterface
 
     public function getById(string $accountId): ?Account
     {
-        $account = Db::table('accounts')
-            ->where('id', $accountId)
-            ->first();
+        $account = AccountModel::query()->find($accountId);
 
         if (is_null($account)) {
             return null;
@@ -48,8 +44,8 @@ class AccountQueryBuilderRepository implements AccountRepositoryInterface
 
     public function save(Account $account): void
     {
-        Db::table('accounts')
-            ->insert([
+        AccountModel::query()
+            ->create([
                 'id' => $account->getId(),
                 'first_name' => $account->getFirstName(),
                 'last_name' => $account->getLastName(),

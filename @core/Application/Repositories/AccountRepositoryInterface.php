@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Application\Repositories;
+namespace Core\Application\Repositories;
 
-use App\Domain\Entities\Account;
+use Core\Domain\Entities\Account;
 
 interface AccountRepositoryInterface
 {

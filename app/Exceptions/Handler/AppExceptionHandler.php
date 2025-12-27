@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Infraestructure\Exceptions\Handler;
+namespace App\Exceptions\Handler;
 
-use App\Application\Exceptions\AlreadyExistsException;
+use Core\Application\Exceptions\AlreadyExistsException;
 use Hyperf\ExceptionHandler\ExceptionHandler;
 use Hyperf\HttpMessage\Stream\SwooleStream;
 use Psr\Http\Message\ResponseInterface;

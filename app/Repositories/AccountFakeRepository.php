@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Infraestructure\Repositories;
+namespace App\Repositories;
 
-use App\Application\Repositories\AccountRepositoryInterface;
-use App\Domain\Entities\Account;
+use Core\Application\Repositories\AccountRepositoryInterface;
+use Core\Domain\Entities\Account;
 
 class AccountFakeRepository implements AccountRepositoryInterface
 {

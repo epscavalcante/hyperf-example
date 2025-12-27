@@ -1,6 +1,6 @@
 <?php
 
-use App\Domain\ValueObjects\Name;
+use Core\Domain\ValueObjects\Name;
 
 describe('Name Tests', function () {
     test('Deve falhar ao criar um nome inválido', function (string $firstName, $lastName) {

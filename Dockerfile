@@ -3,23 +3,27 @@
 # ----------------------------
 FROM hyperf/hyperf:8.3-alpine-v3.21-swoole-slim
 
-# --- Build args para compatibilidade com host ---
-#ARG USERNAME=application
-#ARG UID=1000
-#ARG GID=1000
+RUN chmod a+rx /usr/local/bin/composer
 
-# --- Criação do usuário compatível com host ---
-#RUN addgroup -g ${GID} ${USERNAME} \
-# && adduser -D -u ${UID} -G ${USERNAME} ${USERNAME} \
-# && mkdir -p /home/${USERNAME}/.composer /var/www \
-# && chown -R ${USERNAME}:${USERNAME} /home/${USERNAME}/.composer /var/www
+# --- Build args para compatibilidade com host ---
+ARG USER=application
+ARG UID=1000
+ARG GID=1000
+
+# Cria grupo e usuário compatíveis com host
+RUN addgroup -g ${GID} ${USER} \
+    && adduser -D -u ${UID} -G ${USER} ${USER}
+
+# Diretórios necessários
+RUN mkdir -p /var/www /home/${USER}/.composer \
+    && chown -R ${USER}:${USER} /var/www /home/${USER}
 
 # --- Diretório de trabalho ---
 WORKDIR /var/www
 
 # --- Copia arquivos do host ---
 COPY . /var/www
-#RUN chown -R ${USERNAME}:${USERNAME} /var/www
+# RUN chown -R ${USERNAME}:${USERNAME} /var/www
 
 # --- Instala Composer (já vem no Hyperf) e dependências de PCOV ---
 #ENV COMPOSER_ALLOW_SUPERUSER=1
@@ -38,7 +42,7 @@ RUN git config --global --add safe.directory /var/www
 EXPOSE 9501
 
 # --- Usuário padrão para desenvolvimento ---
-#USER ${USERNAME}
+USER ${USERNAME}
 
 # --- Comando default (mantém o container ativo para dev) ---
 CMD ["tail", "-f", "/dev/null"]
