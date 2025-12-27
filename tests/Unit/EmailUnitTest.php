@@ -1,6 +1,6 @@
 <?php
 
-use App\Domain\ValueObjects\Email;
+use Core\Domain\ValueObjects\Email;
 
 describe('Email Unit Test', function () {
     test('Should receives Error when creating email invalid', function (string $email) {

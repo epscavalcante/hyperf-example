@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Entities;
+namespace Core\Domain\Entities;
 
-use App\Domain\ValueObjects\Email;
-use App\Domain\ValueObjects\Name;
+use Core\Domain\ValueObjects\Email;
+use Core\Domain\ValueObjects\Name;
 use Ramsey\Identifier\Ulid\Ulid;
 use Ramsey\Identifier\Ulid\UlidFactory;
 

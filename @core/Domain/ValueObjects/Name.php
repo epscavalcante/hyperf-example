@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\ValueObjects;
+namespace Core\Domain\ValueObjects;
 
 use Exception;
 

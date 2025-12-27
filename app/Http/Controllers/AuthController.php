@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Infraestructure\Http\Controllers;
+namespace App\Http\Controllers;
 
-use App\Application\UseCases\Signup\Signup;
-use App\Application\UseCases\Signup\SignupInput;
-use App\Infraestructure\Http\Requests\SignupRequest;
+use Core\Application\UseCases\Signup\Signup;
+use Core\Application\UseCases\Signup\SignupInput;
+use App\Http\Requests\SignupRequest;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Annotation\Controller;
 use Hyperf\HttpServer\Annotation\PostMapping;

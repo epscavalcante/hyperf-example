@@ -4,3 +4,6 @@
 !config/
 !composer.*
 .git
+runtime/
+.github
+.docker

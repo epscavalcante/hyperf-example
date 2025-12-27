@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Application\UseCases\Signup;
+namespace Core\Application\UseCases\Signup;
 
-use App\Application\Exceptions\AccountAlreadyExistsException;
-use App\Application\Repositories\AccountRepositoryInterface;
-use App\Domain\Entities\Account;
+use Core\Application\Exceptions\AccountAlreadyExistsException;
+use Core\Application\Repositories\AccountRepositoryInterface;
+use Core\Domain\Entities\Account;
 use Psr\Log\LoggerInterface;
 
 class Signup

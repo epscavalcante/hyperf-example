@@ -1,11 +1,11 @@
 <?php
 
-use App\Application\Exceptions\AccountAlreadyExistsException;
-use App\Application\Repositories\AccountRepositoryInterface;
-use App\Application\UseCases\Signup\Signup;
-use App\Application\UseCases\Signup\SignupInput;
-use App\Application\UseCases\Signup\SignupOutput;
-use App\Domain\Entities\Account;
+use Core\Application\Exceptions\AccountAlreadyExistsException;
+use Core\Application\Repositories\AccountRepositoryInterface;
+use Core\Application\UseCases\Signup\Signup;
+use Core\Application\UseCases\Signup\SignupInput;
+use Core\Application\UseCases\Signup\SignupOutput;
+use Core\Domain\Entities\Account;
 use Psr\Log\LoggerInterface;
 
 describe('Signup Test', function () {
