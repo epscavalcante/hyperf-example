@@ -38,11 +38,8 @@ RUN echo "pcov.enabled=1" > /etc/php83/conf.d/50_pcov.ini \
 # --- Git safe directory (para testes com CI ou composer) ---
 RUN git config --global --add safe.directory /var/www
 
-# --- Exposição de porta padrão Hyperf ---
 EXPOSE 9501
 
-# --- Usuário padrão para desenvolvimento ---
 USER ${USERNAME}
 
-# --- Comando default (mantém o container ativo para dev) ---
 CMD ["tail", "-f", "/dev/null"]
