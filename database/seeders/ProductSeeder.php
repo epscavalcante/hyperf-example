@@ -19,7 +19,7 @@ class ProductSeeder extends Seeder
 
         for ($i = 0; $i < 10; $i++) {
             Db::table('accounts')->insert([
-                'uuid' => (new UlidFactory())->create()->toString(),
+                'uuid' => (new UlidFactory)->create()->toString(),
                 'name' => $faker->name(),
                 'email' => $faker->unique()->freeEmail(),
             ]);
